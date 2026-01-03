@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "svelte-check": "^4.3.5"
+  }
+}
