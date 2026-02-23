@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { 
   LayoutDashboard, Plus, Scissors as ScissorsIcon, 
-  Trash2, DollarSign, Calendar, Image as ImageIcon, Clock, LogOut
+  Trash2, DollarSign, Calendar, Image as ImageIcon, 
+  Clock, LogOut, Copy 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast, Toaster } from 'react-hot-toast';
 import { db } from './firebase'; 
-import { collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, where, getDoc } from 'firebase/firestore';
+import { 
+  collection, addDoc, deleteDoc, doc, 
+  onSnapshot, query, orderBy, where, getDoc 
+} from 'firebase/firestore';
 
 const Admin = ({ user, onSair }) => {
-  const { lojaId } = useParams(); // Pega o slug da URL
+  const { lojaId } = useParams(); 
   const [dadosEmpresa, setDadosEmpresa] = useState(null);
   const [abaAtiva, setAbaAtiva] = useState('agenda');
   const [modalNovoServico, setModalNovoServico] = useState(false);
@@ -29,7 +33,6 @@ const Admin = ({ user, onSair }) => {
   useEffect(() => {
     if (!lojaId || !user) return;
 
-    // 1. BUSCAR CONFIGURAÇÕES DA LOJA (LOGO, NOME, COR)
     const buscarDadosLoja = async () => {
         const docRef = doc(db, "empresas", user.uid);
         const snap = await getDoc(docRef);
@@ -37,13 +40,11 @@ const Admin = ({ user, onSair }) => {
     };
     buscarDadosLoja();
 
-    // 2. ESCUTAR SERVIÇOS (FILTRADO POR LOJA)
     const qServicos = query(collection(db, "servicos"), where("lojaId", "==", lojaId), orderBy("nome", "asc"));
     const unsubServ = onSnapshot(qServicos, (snap) => {
       setServicos(snap.docs.map(d => ({ id: d.id, ...d.data() })));
     });
 
-    // 3. ESCUTAR AGENDAMENTOS (FILTRADO POR LOJA)
     const qAgendas = query(collection(db, "agendamentos"), where("lojaId", "==", lojaId), orderBy("data", "desc"));
     const unsubAgend = onSnapshot(qAgendas, (snap) => {
       const lista = snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -52,7 +53,6 @@ const Admin = ({ user, onSair }) => {
       setFinanceiro({ hoje: total });
     });
 
-    // 4. ESCUTAR GALERIA (FILTRADO POR LOJA)
     const qGaleria = query(collection(db, "galeria"), where("lojaId", "==", lojaId));
     const unsubGal = onSnapshot(qGaleria, (snap) => {
       setFotos(snap.docs.map(d => ({ id: d.id, ...d.data() })));
@@ -120,29 +120,67 @@ const Admin = ({ user, onSair }) => {
           ].map(aba => (
             <button key={aba.id} onClick={() => setAbaAtiva(aba.id)} 
               style={{ backgroundColor: abaAtiva === aba.id ? corPrincipal : 'rgba(255,255,255,0.05)', borderColor: abaAtiva === aba.id ? corPrincipal : 'transparent' }}
-              className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase transition-all flex items-center gap-2 border ${abaAtiva === aba.id ? 'text-white' : 'text-slate-500'}`}
+              className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase transition-all flex items-center gap-2 border whitespace-nowrap ${abaAtiva === aba.id ? 'text-white' : 'text-slate-500'}`}
             > {aba.icon} {aba.label} </button>
           ))}
         </div>
 
         {/* CONTEÚDO: AGENDA */}
         {abaAtiva === 'agenda' && (
-          <div className="space-y-4">
-            {agendamentos.map(ag => (
-              <div key={ag.id} className="p-5 rounded-[28px] border border-white/5 bg-[#0A0A0A] flex justify-between items-center group">
-                <div className="flex gap-4 items-center text-left">
-                  <div style={{ color: corPrincipal, backgroundColor: `${corPrincipal}15`, borderColor: `${corPrincipal}30` }} className="flex flex-col items-center justify-center w-14 h-14 rounded-2xl border font-black italic">
-                    <span className="text-xs">{ag.horario}</span>
-                    <span className="text-[7px] opacity-50">{ag.data?.split('-').reverse().slice(0,2).join('/')}</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm text-white">{ag.clienteNome}</p>
-                    <p style={{ color: corPrincipal }} className="text-[9px] font-black uppercase tracking-widest">{ag.servicoNome}</p>
-                  </div>
+          <div className="space-y-6">
+            {/* CARD DE LINK RÁPIDO */}
+            <div className="bg-[#0A0A0A] p-6 rounded-[32px] border border-white/5 text-left">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">Link de Agendamento</p>
+                  <p className="text-white/40 text-[9px] uppercase font-bold">Compartilhe para receber marcações</p>
                 </div>
-                <button onClick={() => deletarDoc("agendamentos", ag.id)} className="p-3 text-slate-800 hover:text-red-500 transition-colors"><Trash2 size={18}/></button>
+                <div style={{ backgroundColor: `${corPrincipal}20`, color: corPrincipal }} className="p-2 rounded-lg">
+                  <Plus size={14} />
+                </div>
               </div>
-            ))}
+              <div className="flex gap-2">
+                <div className="flex-1 bg-black/40 border border-white/5 p-4 rounded-2xl text-[11px] font-mono text-indigo-400 truncate">
+                  {window.location.host}/{lojaId}
+                </div>
+                <button 
+                  onClick={() => {
+                    const link = `${window.location.protocol}//${window.location.host}/${lojaId}`;
+                    navigator.clipboard.writeText(link);
+                    toast.success("Link copiado!");
+                  }}
+                  style={{ backgroundColor: corPrincipal }}
+                  className="px-6 rounded-2xl flex items-center justify-center active:scale-95 transition-all shadow-lg"
+                >
+                  <Copy size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="text-[10px] font-black uppercase text-slate-600 ml-2 tracking-widest text-left">Próximos Clientes</h2>
+              {agendamentos.length === 0 ? (
+                <div className="py-20 text-center border-2 border-dashed border-white/5 rounded-[40px]">
+                  <p className="text-slate-700 font-black uppercase text-xs">Nenhum agendamento encontrado</p>
+                </div>
+              ) : (
+                agendamentos.map(ag => (
+                  <div key={ag.id} className="p-5 rounded-[28px] border border-white/5 bg-[#0A0A0A] flex justify-between items-center group">
+                    <div className="flex gap-4 items-center text-left">
+                      <div style={{ color: corPrincipal, backgroundColor: `${corPrincipal}15`, borderColor: `${corPrincipal}30` }} className="flex flex-col items-center justify-center w-14 h-14 rounded-2xl border font-black italic">
+                        <span className="text-xs">{ag.horario}</span>
+                        <span className="text-[7px] opacity-50">{ag.data?.split('-').reverse().slice(0,2).join('/')}</span>
+                      </div>
+                      <div>
+                        <p className="font-bold text-sm text-white">{ag.clienteNome}</p>
+                        <p style={{ color: corPrincipal }} className="text-[9px] font-black uppercase tracking-widest">{ag.servicoNome}</p>
+                      </div>
+                    </div>
+                    <button onClick={() => deletarDoc("agendamentos", ag.id)} className="p-3 text-slate-800 hover:text-red-500 transition-colors"><Trash2 size={18}/></button>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         )}
 
@@ -202,23 +240,23 @@ const Admin = ({ user, onSair }) => {
       <AnimatePresence>
         {modalNovoServico && (
           <motion.div initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }} className="fixed bottom-0 inset-x-0 bg-[#0A0A0A] p-8 z-[101] rounded-t-[40px] border-t border-white/10 shadow-2xl">
-             <div className="w-12 h-1 bg-white/10 mx-auto mb-6 rounded-full" />
-             <div className="space-y-4 text-left">
-               <label className="text-[10px] font-black uppercase text-slate-500 ml-2 tracking-widest">Nome do Serviço</label>
-               <input value={novoNomeS} onChange={e=>setNovoNomeS(e.target.value)} placeholder="Ex: Corte Degradê" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
-               <div className="grid grid-cols-2 gap-4">
-                 <div>
-                    <label className="text-[10px] font-black uppercase text-slate-500 ml-2">Preço (R$)</label>
-                    <input value={novoPrecoS} onChange={e=>setNovoPrecoS(e.target.value)} type="number" placeholder="0.00" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
-                 </div>
-                 <div>
-                    <label className="text-[10px] font-black uppercase text-slate-500 ml-2">Tempo (Min)</label>
-                    <input value={novoTempoS} onChange={e=>setNovoTempoS(e.target.value)} type="number" placeholder="Ex: 30" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
-                 </div>
-               </div>
-               <button onClick={handleAddServico} style={{ backgroundColor: corPrincipal }} className="w-full py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg active:scale-95 transition-all">Salvar Serviço</button>
-               <button onClick={()=>setModalNovoServico(false)} className="w-full py-4 text-slate-500 text-[10px] font-black uppercase mt-2">Cancelar</button>
-             </div>
+              <div className="w-12 h-1 bg-white/10 mx-auto mb-6 rounded-full" />
+              <div className="space-y-4 text-left">
+                <label className="text-[10px] font-black uppercase text-slate-500 ml-2 tracking-widest">Nome do Serviço</label>
+                <input value={novoNomeS} onChange={e=>setNovoNomeS(e.target.value)} placeholder="Ex: Corte Degradê" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                     <label className="text-[10px] font-black uppercase text-slate-500 ml-2">Preço (R$)</label>
+                     <input value={novoPrecoS} onChange={e=>setNovoPrecoS(e.target.value)} type="number" placeholder="0.00" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
+                  </div>
+                  <div>
+                     <label className="text-[10px] font-black uppercase text-slate-500 ml-2">Tempo (Min)</label>
+                     <input value={novoTempoS} onChange={e=>setNovoTempoS(e.target.value)} type="number" placeholder="Ex: 30" className="w-full p-5 bg-white/5 border border-white/5 rounded-2xl text-white font-bold outline-none" />
+                  </div>
+                </div>
+                <button onClick={handleAddServico} style={{ backgroundColor: corPrincipal }} className="w-full py-6 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg active:scale-95 transition-all">Salvar Serviço</button>
+                <button onClick={()=>setModalNovoServico(false)} className="w-full py-4 text-slate-500 text-[10px] font-black uppercase mt-2">Cancelar</button>
+              </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // 🚀 ISSO AQUI É O QUE COLOCA O ./ NO HTML AUTOMATICAMENTE
-  base: './', 
+  // 🚀 MUDE PARA '/' (Caminho Absoluto)
+  // Isso garante que os scripts sejam achados em qualquer sub-rota
+  base: '/', 
   plugins: [
     react(),
     tailwindcss(),
