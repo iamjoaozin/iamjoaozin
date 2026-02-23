@@ -12,7 +12,7 @@ model User {
   name         String
   phone        String        @unique
   email        String        @unique
-  appointments Appointment []
+  appointments Appointment[]
   createdAt    DateTime      @default(now())
 }
 
@@ -25,6 +25,13 @@ model Appointment {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
+}
+
+model Service {
+  id    String @id @default(uuid())
+  nome  String
+  preco Float
+  tempo String
 }
 
 model Gallery {
