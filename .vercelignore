@@ -1,0 +1,12 @@
+# Ignorar arquivos do instalador Desktop
+instalador-final
+dist_electron
+*.exe
+
+# Ignorar banco de dados local
+dev.db
+dev.db-journal
+
+# Ignorar pastas pesadas do sistema
+node_modules
+.git
