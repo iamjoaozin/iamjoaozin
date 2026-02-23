@@ -1,120 +1,140 @@
-import { useState } from 'react';
-import { Users, DollarSign, Calendar, Star, CheckCircle, XCircle, Search } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { 
+  LayoutDashboard, Plus, Scissors as ScissorsIcon, 
+  Clock, Trash2, UserPlus, RefreshCw, DollarSign
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { toast, Toaster } from 'react-hot-toast';
 
-export default function AdminDashboard() {
-  // Dados de exemplo para a tabela
-  const agendamentos = [
-    { id: 1, nome: "Carlos Silva", servico: "Combo NEX", data: "Hoje, 14:00", status: "Pago", valor: 65.0 },
-    { id: 2, nome: "Rafael Souza", servico: "Corte Social", data: "Hoje, 15:30", status: "Pendente", valor: 40.0 },
-    { id: 3, nome: "Lucas Mendes", servico: "Barba Terapia", data: "Amanhã, 09:00", status: "Pago", valor: 35.0 },
-  ];
+const API_URL = "https://iamjoaozin.onrender.com";
+
+const Admin = () => {
+  const [abaAtiva, setAbaAtiva] = useState('agenda');
+  const [modalNovoServico, setModalNovoServico] = useState(false);
+  const [modalNovoAgendamento, setModalNovoAgendamento] = useState(false);
+  const [carregando, setCarregando] = useState(false);
+
+  const [agendamentos, setAgendamentos] = useState([]);
+  const [servicos, setServicos] = useState([]);
+  const [financeiro, setFinanceiro] = useState({ hoje: 0, previsao: 0 });
+
+  const [novoNomeS, setNovoNomeS] = useState('');
+  const [novoPrecoS, setNovoPrecoS] = useState('');
+  const [novoTempoNumS, setNovoTempoNumS] = useState('');
+  const [unidadeS, setUnidadeS] = useState('min');
+  const [clienteA, setClienteA] = useState('');
+  const [horaA, setHoraA] = useState('');
+
+  const buscarTudo = async () => {
+    setCarregando(true);
+    try {
+      const [resAgendas, resServicos] = await Promise.all([
+        fetch(`${API_URL}/admin/agendamentos`),
+        fetch(`${API_URL}/servicos`)
+      ]);
+      const dataAgendas = await resAgendas.json();
+      const dataServicos = await resServicos.json();
+      setAgendamentos(dataAgendas.agendamentos || []);
+      setFinanceiro({ hoje: dataAgendas.faturamento || 0, previsao: 0 });
+      setServicos(dataServicos || []);
+    } catch (error) {
+      toast.error("Erro de conexão");
+    } finally {
+      setCarregando(false);
+    }
+  };
+
+  useEffect(() => { buscarTudo(); }, []);
+
+  const handleAddServico = async () => {
+    if (!novoNomeS || !novoPrecoS) return toast.error("Preencha tudo!");
+    const res = await fetch(`${API_URL}/servicos`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: novoNomeS, preco: parseFloat(novoPrecoS), tempo: `${novoTempoNumS} ${unidadeS}` })
+    });
+    if (res.ok) { setModalNovoServico(false); buscarTudo(); toast.success("Serviço Salvo!"); }
+  };
+
+  const deletarAgenda = async (id) => {
+    await fetch(`${API_URL}/admin/agendamentos/${id}`, { method: 'DELETE' });
+    buscarTudo();
+    toast.success("Removido");
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 font-sans">
-      
-      {/* HEADER DO ADMIN */}
-      <div className="flex justify-between items-center mb-10">
-        <div>
-          <h1 className="text-4xl font-black italic tracking-tighter text-indigo-500">NEX ADMIN</h1>
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mt-1">Centro de Comando</p>
-        </div>
-        <button className="bg-white/5 border border-white/10 px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all">
-          Sair
-        </button>
-      </div>
-
-      {/* CARDS DE RESUMO */}
-      <div className="grid grid-cols-3 gap-6 mb-10">
-        <div className="bg-white/5 border border-white/10 p-6 rounded-[30px] flex items-center gap-4">
-          <div className="w-12 h-12 bg-green-500/20 rounded-2xl flex items-center justify-center text-green-500"><DollarSign size={24}/></div>
-          <div><p className="text-[10px] font-black uppercase text-slate-500">Caixa Hoje</p><p className="text-2xl font-black italic">R$ 450,00</p></div>
-        </div>
-        <div className="bg-white/5 border border-white/10 p-6 rounded-[30px] flex items-center gap-4">
-          <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-400"><Calendar size={24}/></div>
-          <div><p className="text-[10px] font-black uppercase text-slate-500">Agendamentos</p><p className="text-2xl font-black italic">12 Pendentes</p></div>
-        </div>
-        <div className="bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/30 p-6 rounded-[30px] flex items-center gap-4 relative overflow-hidden">
-          <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-300"><Star size={24}/></div>
-          <div><p className="text-[10px] font-black uppercase text-indigo-300">Clube NEX</p><p className="text-2xl font-black italic">28 Ativos</p></div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-8">
-        {/* TABELA DE AGENDAMENTOS (Ocupa 2/3 da tela) */}
-        <div className="col-span-2 bg-white/5 border border-white/10 p-8 rounded-[40px]">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-lg font-black uppercase tracking-widest flex items-center gap-2"><Users size={18} className="text-indigo-400"/> Fila de Clientes</h2>
-            <div className="bg-black/50 border border-white/10 rounded-full px-4 py-2 flex items-center gap-2">
-              <Search size={14} className="text-slate-500" />
-              <input type="text" placeholder="Buscar..." className="bg-transparent border-none outline-none text-xs text-white" />
-            </div>
+    <div className="min-h-screen bg-[#050505] text-white pb-24">
+      <Toaster position="top-center" />
+      <header className="p-4 flex justify-between items-center bg-black/60 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+            <LayoutDashboard size={20} />
           </div>
+          <h1 className="text-xl font-black italic uppercase">Nex <span className="text-indigo-500">Admin</span></h1>
+        </div>
+        <button onClick={buscarTudo} className={`p-2 bg-white/5 rounded-xl ${carregando && 'animate-spin'}`}><RefreshCw size={20} /></button>
+      </header>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="text-[10px] font-black uppercase tracking-widest text-slate-500 border-b border-white/10">
-                  <th className="pb-4">Cliente</th>
-                  <th className="pb-4">Serviço</th>
-                  <th className="pb-4">Data/Hora</th>
-                  <th className="pb-4">Status</th>
-                  <th className="pb-4 text-right">Ação</th>
-                </tr>
-              </thead>
-              <tbody>
-                {agendamentos.map((ag) => (
-                  <tr key={ag.id} className="border-b border-white/5 hover:bg-white/5 transition-all">
-                    <td className="py-4 font-bold text-sm">{ag.nome}</td>
-                    <td className="py-4 text-xs text-slate-300">{ag.servico}</td>
-                    <td className="py-4 text-xs font-mono">{ag.data}</td>
-                    <td className="py-4">
-                      <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${ag.status === 'Pago' ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-orange-500/10 text-orange-400 border border-orange-500/20'}`}>
-                        {ag.status}
-                      </span>
-                    </td>
-                    <td className="py-4 flex justify-end gap-2">
-                      <button className="p-2 text-green-500 hover:bg-green-500/10 rounded-xl transition-all"><CheckCircle size={16}/></button>
-                      <button className="p-2 text-red-500 hover:bg-red-500/10 rounded-xl transition-all"><XCircle size={16}/></button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <main className="p-4 max-w-7xl mx-auto">
+        <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+          {['agenda', 'servicos', 'financeiro'].map(aba => (
+            <button key={aba} onClick={() => setAbaAtiva(aba)} className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase transition-all ${abaAtiva === aba ? 'bg-indigo-600' : 'bg-white/5 text-slate-500'}`}>{aba}</button>
+          ))}
         </div>
 
-        {/* ÁREA DE ASSINATURAS VIP (Ocupa 1/3 da tela) */}
-        <div className="col-span-1 space-y-6">
-          <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/10 border border-indigo-500/30 p-8 rounded-[40px] relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-6 opacity-10"><Star size={100} /></div>
-            <h2 className="text-2xl font-black italic tracking-tighter mb-2 text-indigo-300">CLUBE NEX VIP</h2>
-            <p className="text-xs text-indigo-200/60 mb-8 font-bold">Gestão de assinaturas recorrentes.</p>
-            
-            <button className="w-full bg-indigo-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-indigo-500 transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-              + Novo Assinante
-            </button>
-            
-            <div className="mt-6 space-y-3">
-              <div className="bg-black/40 border border-white/5 p-4 rounded-2xl flex justify-between items-center">
-                <div>
-                  <p className="font-bold text-sm">Plano Ilimitado</p>
-                  <p className="text-[9px] uppercase tracking-widest text-slate-500">R$ 150/mês • 18 ativos</p>
+        {abaAtiva === 'agenda' && (
+          <div className="space-y-4">
+            {agendamentos.map(ag => (
+              <div key={ag.id} className="p-5 rounded-[28px] border border-white/10 bg-white/5 flex justify-between items-center">
+                <div className="flex gap-4 items-center">
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-black text-xs italic">
+                    {new Date(ag.date).getHours()}:{String(new Date(ag.date).getMinutes()).padStart(2, '0')}
+                  </div>
+                  <div>
+                    <p className="font-bold text-sm">{ag.userName || "Cliente"}</p>
+                    <p className="text-[9px] font-black uppercase text-indigo-400">{ag.service}</p>
+                  </div>
                 </div>
-                <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)] animate-pulse"></div>
+                <button onClick={() => deletarAgenda(ag.id)} className="p-3 text-red-500"><Trash2 size={18}/></button>
               </div>
-              <div className="bg-black/40 border border-white/5 p-4 rounded-2xl flex justify-between items-center">
-                <div>
-                  <p className="font-bold text-sm">Combo Semanal</p>
-                  <p className="text-[9px] uppercase tracking-widest text-slate-500">R$ 100/mês • 10 ativos</p>
-                </div>
-                <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)] animate-pulse"></div>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-        
-      </div>
+        )}
+
+        {abaAtiva === 'servicos' && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {servicos.map(s => (
+              <div key={s.id} className="bg-white/5 border border-white/10 p-6 rounded-[32px]">
+                <h3 className="font-bold text-lg">{s.nome}</h3>
+                <p className="text-xl font-black italic text-white mt-2">R$ {s.preco.toFixed(2)}</p>
+                <button onClick={async () => { await fetch(`${API_URL}/servicos/${s.id}`, {method:'DELETE'}); buscarTudo(); }} className="mt-4 text-red-500"><Trash2 size={16}/></button>
+              </div>
+            ))}
+            <button onClick={() => setModalNovoServico(true)} className="border-2 border-dashed border-white/10 p-8 rounded-[32px] flex flex-col items-center justify-center text-slate-500">+</button>
+          </div>
+        )}
+
+        {abaAtiva === 'financeiro' && (
+          <div className="bg-gradient-to-br from-indigo-600 to-indigo-800 p-8 rounded-[40px]">
+            <p className="text-indigo-200 text-[10px] font-black uppercase mb-2 flex items-center gap-2"><DollarSign size={14}/> Faturamento de Hoje</p>
+            <h2 className="text-5xl font-black italic tracking-tighter">R$ {financeiro.hoje.toFixed(2)}</h2>
+          </div>
+        )}
+      </main>
+
+      {/* Modal Simplificado */}
+      <AnimatePresence>
+        {modalNovoServico && (
+          <motion.div initial={{y:'100%'}} animate={{y:0}} exit={{y:'100%'}} className="fixed bottom-0 inset-x-0 bg-[#0A0A0A] p-8 z-[101] rounded-t-[40px] border-t border-white/10">
+            <input value={novoNomeS} onChange={e=>setNovoNomeS(e.target.value)} placeholder="Nome do Serviço" className="w-full p-4 bg-white/5 rounded-2xl mb-4" />
+            <input value={novoPrecoS} onChange={e=>setNovoPrecoS(e.target.value)} type="number" placeholder="Preço" className="w-full p-4 bg-white/5 rounded-2xl mb-4" />
+            <button onClick={handleAddServico} className="w-full bg-indigo-600 py-5 rounded-2xl font-black">SALVAR</button>
+            <button onClick={() => setModalNovoServico(false)} className="w-full py-4 text-slate-500">FECHAR</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
-}
+};
+
+export default Admin;
