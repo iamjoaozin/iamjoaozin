@@ -27,28 +27,15 @@ Atuo no desenvolvimento de software cobrindo desde aplicações web reativas (PW
 
 ---
 
-### 🎥 Demonstrações em Vídeo (Destaques)
+### Repositórios & Projetos no Ar
 
-| Projeto | Descrição | Demonstração em Vídeo | Repositório |
+| Projeto | Descrição | Link do Site (Live Demo) | Repositório no GitHub |
 | :--- | :--- | :--- | :--- |
-| **Infinity Web** | Plataforma Web de alto desempenho, animações fluidas e UX reativo. | [▶️ Assistir Vídeo do Infinity Web](https://github.com/iamjoaozin/infinity-web#demonstra%C3%A7%C3%A3o-em-v%C3%ADdeo) | [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web) |
-| **Experiência 3D** | Aplicação interativa de navegação e manipulação de câmera 3D com WebGL/Three.js. | [▶️ Assistir Vídeo do Mundo 3D](https://github.com/iamjoaozin/experiencia-imersiva-3d#demonstra%C3%A7%C3%A3o-em-v%C3%ADdeo) | [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d) |
-
----
-
-### 🚀 Outros Repositórios
-
-#### 📱 [agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
-Plataforma de agendamento online para barbearias e estabelecimentos de serviços (PWA + Notificações Push).
-
-#### 📈 [site-arbitragem](https://github.com/iamjoaozin/site-arbitragem)
-Plataforma de análise de arbitragem e calculadora de viabilidade financeira.
-
-#### ⚙️ [account-test-manager](https://github.com/iamjoaozin/account-test-manager)
-Suíte de automação em Python, gerenciamento de proxies e painel web em tempo real.
-
-#### 👾 [rom-studio](https://github.com/iamjoaozin/rom-studio)
-Ferramentas de análise de memória, VRAM e engenharia reversa para jogos de SNES.
+| **Infinity Web** | Plataforma Web de alto desempenho, animações fluidas e UX reativo. | [🔗 Acessar Infinity Web](https://infinity-web-kohl.vercel.app) | [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web) |
+| **Experiência 3D** | Aplicação interativa de navegação e manipulação de câmera 3D em WebGL. | [🔗 Acessar Mundo 3D](https://experiencia-imersiva.vercel.app) | [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d) |
+| **AgendaLink PWA** | Sistema completo de agendamento online com PWA e notificações push. | [🔗 Acessar AgendaLink](https://site-agendamento-doxyheheh-1134s-projects.vercel.app) | [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa) |
+| **Account Test Manager** | Suíte de automação em Python, gerenciamento de proxies e painel web. | — | [github.com/iamjoaozin/account-test-manager](https://github.com/iamjoaozin/account-test-manager) |
+| **ROM Studio** | Ferramentas de análise de memória, VRAM e engenharia reversa para SNES. | — | [github.com/iamjoaozin/rom-studio](https://github.com/iamjoaozin/rom-studio) |
 
 ---
 
