@@ -27,29 +27,28 @@ Atuo no desenvolvimento de software cobrindo desde aplicações web reativas (PW
 
 ---
 
-### 🎥 Projetos & Vídeos em Destaque
+### 🎥 Demonstrações em Vídeo (Destaques)
 
-#### 🌟 [infinity-web](https://github.com/iamjoaozin/infinity-web)
-Plataforma Web de alto desempenho e design moderno com navegação responsiva e animações fluidas.
-- **Destaque:** Assista à demonstração em vídeo diretamente no repositório!
-- **Acesse e Assista:** [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web)
+| Projeto | Descrição | Demonstração em Vídeo | Repositório |
+| :--- | :--- | :--- | :--- |
+| **Infinity Web** | Plataforma Web de alto desempenho, animações fluidas e UX reativo. | [▶️ Assistir Vídeo do Infinity Web](https://github.com/iamjoaozin/infinity-web#demonstra%C3%A7%C3%A3o-em-v%C3%ADdeo) | [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web) |
+| **Experiência 3D** | Aplicação interativa de navegação e manipulação de câmera 3D com WebGL/Three.js. | [▶️ Assistir Vídeo do Mundo 3D](https://github.com/iamjoaozin/experiencia-imersiva-3d#demonstra%C3%A7%C3%A3o-em-v%C3%ADdeo) | [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d) |
 
-#### 🕶️ [experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d)
-Projeto de navegação e exploração de ambientes 3D no navegador com Three.js / WebGL.
-- **Destaque:** Assista à demonstração em vídeo diretamente no repositório!
-- **Acesse e Assista:** [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d)
+---
+
+### 🚀 Outros Repositórios
 
 #### 📱 [agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
-Plataforma de agendamento online para barbearias e estabelecimentos com PWA e Notificações Push.
-- **Acesse o Repositório:** [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
+Plataforma de agendamento online para barbearias e estabelecimentos de serviços (PWA + Notificações Push).
+
+#### 📈 [site-arbitragem](https://github.com/iamjoaozin/site-arbitragem)
+Plataforma de análise de arbitragem e calculadora de viabilidade financeira.
 
 #### ⚙️ [account-test-manager](https://github.com/iamjoaozin/account-test-manager)
 Suíte de automação em Python, gerenciamento de proxies e painel web em tempo real.
-- **Acesse o Repositório:** [github.com/iamjoaozin/account-test-manager](https://github.com/iamjoaozin/account-test-manager)
 
 #### 👾 [rom-studio](https://github.com/iamjoaozin/rom-studio)
 Ferramentas de análise de memória, VRAM e engenharia reversa para jogos de SNES.
-- **Acesse o Repositório:** [github.com/iamjoaozin/rom-studio](https://github.com/iamjoaozin/rom-studio)
 
 ---
 
