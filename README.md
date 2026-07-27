@@ -71,12 +71,13 @@ Conjunto de ferramentas para análise de memória, rastreamento de DMA, inspeç�
 
 ---
 
-### Estatísticas do GitHub
+### Atividade do GitHub
 
-<div align="center">
-  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=iamjoaozin&show_icons=true&theme=radial&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub" />
-  <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamjoaozin&layout=compact&theme=radial&hide=html,css" alt="Linguagens Mais Utilizadas" />
-</div>
+<p>
+  <img src="https://img.shields.io/github/repos/iamjoaozin?style=for-the-badge&logo=github&label=Reposit%C3%B3rios&color=0A66C2" alt="Repositórios" />
+  <img src="https://img.shields.io/github/commit-activity/y/iamjoaozin/iamjoaozin?style=for-the-badge&logo=github&label=Atividade%20de%20Commits&color=25D366" alt="Commits" />
+  <img src="https://img.shields.io/github/languages/top/iamjoaozin/iamjoaozin?style=for-the-badge&logo=codefactor&label=Linguagem%20Predominante&color=F7DF1E" alt="Linguagem Principal" />
+</p>
 
 ---
 
