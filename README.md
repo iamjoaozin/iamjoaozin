@@ -1,13 +1,19 @@
 <div align="center">
-  <h1>👋 Olá, eu sou o João (iamjoaozin)</h1>
-  <p><strong>Desenvolvedor Full Stack & Criador de Soluções de Software</strong></p>
+  <h1>👋 Olá, eu sou o João Victor (iamjoaozin)</h1>
+  <p><strong>Desenvolvedor Full Stack, Automação & Engenharia de Software</strong></p>
 
   <p>
     <a href="https://github.com/iamjoaozin">
       <img src="https://img.shields.io/badge/Status-Dispon%C3%ADvel_para_Projetos-brightgreen?style=for-the-badge&logo=github" alt="Status Badge" />
     </a>
-    <a href="#-contato">
-      <img src="https://img.shields.io/badge/Contato-Entre_em_Contato-blue?style=for-the-badge&logo=gmail" alt="Contact Badge" />
+    <a href="https://www.linkedin.com/in/joao-victor-621405224/" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-João_Victor-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn Badge" />
+    </a>
+    <a href="https://wa.me/5587991695672" target="_blank">
+      <img src="https://img.shields.io/badge/WhatsApp-87_99169--5672-25D366?style=for-the-badge&logo=whatsapp" alt="WhatsApp Badge" />
+    </a>
+    <a href="mailto:j33061393@gmail.com">
+      <img src="https://img.shields.io/badge/E--mail-j33061393%40gmail.com-EA4335?style=for-the-badge&logo=gmail" alt="Email Badge" />
     </a>
   </p>
 </div>
@@ -16,60 +22,72 @@
 
 ### 👨‍💻 Sobre Mim
 
-Sou um desenvolvedor focado em entregar soluções funcionais, elegantes e de alto valor prático. Atuo no desenvolvimento de **aplicações web modernas (PWAs/SaaS)**, **sistemas de automação backend** e **ferramentas de engenharia de software/análise de sistemas**.
+Sou um desenvolvedor versátil e orientado a resultados, focado na construção de aplicações web modernas (PWAs/SaaS), soluções de automação backend, jogos e ferramentas de engenharia de software/análise de baixo nível.
 
-- 🚀 Desenvolvo sistemas completos da concepção à produção.
-- 💡 Especialista na criação de interfaces intuitivas (UX/UI) e sistemas de agendamento/automação.
-- 🛠️ Experiência com arquiteturas reativas, PWA (Progressive Web Apps), automação Python e manipulação de memória/análise técnica.
+- 🚀 Desenvolvimento Full Stack end-to-end (do protótipo à produção).
+- 💡 Especialista na criação de PWAs com experiência intuitiva (UX/UI) e sistemas reativos.
+- 🛠️ Experiência com sistemas de automação, manipulação de memória, scripts e linguagens de baixo nível (Assembly / C++).
+
+---
+
+### 🛠️ Linguagens & Tecnologias
+
+#### 🔤 Linguagens de Programação
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/C%2F%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" />
+  <img src="https://img.shields.io/badge/Assembly_(65816)-2C2D72?style=for-the-badge&logo=processor&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lua-000080?style=for-the-badge&logo=lua&logoColor=white" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sqlite&logoColor=white" />
+</p>
+
+#### 🧰 Frameworks, Bibliotecas & Ferramentas
+* **Frontend & Web:** React.js, Vite, Progressive Web Apps (PWA), Web APIs, HTML5/CSS3.
+* **Backend & Automação:** Python, FastAPI, Node.js, REST APIs, Automation & Web Scraping Scripts.
+* **Bancos de Dados & Cloud:** Firebase (Firestore / Auth), SQLite, GitHub Actions, Vercel.
+* **Low-Level & Modding:** Engenharia Reversa, Assembly 65816 (PIXI / Super Mario World Hacking), C/C++, Lua Scripting (Mesen/Emuladores), AddmusicK.
 
 ---
 
 ### 🌟 Projetos em Destaque
 
 #### 📱 [AgendaLink (PWA)](https://github.com/iamjoaozin/iamjoaozin/tree/main/src)
-> **Plataforma completa de agendamento online para barbearias e estabelecimentos de serviços.**
-> - **Recursos:** Aplicativo PWA com suporte a Notificações Push, gestão de profissionais, galeria premium de serviços e painel administrativo reativo em tempo real.
-> - **Tecnologias:** React.js, Firebase (Firestore & Auth), PWA, Modern CSS.
+> **Plataforma completa de agendamento online para estabelecimentos de serviços e barbearias.**
+> - **Recursos:** PWA com suporte a Notificações Push, gestão de profissionais, galeria premium e painel administrativo em tempo real.
+> - **Tecnologias:** React.js, Firebase (Firestore & Auth), PWA, CSS3.
 
 #### ⚙️ [Account Test Manager & Web Dashboard](https://github.com/iamjoaozin/iamjoaozin/tree/main/account_test_manager)
-> **Suíte de automação, monitoramento e gerenciamento com painel web integrado.**
-> - **Recursos:** Dashboard em tempo real para controle de instâncias, execução automatizada e exportação de dados analíticos.
+> **Suíte de automação, gerenciamento e monitoramento com painel web integrado.**
+> - **Recursos:** Dashboard em tempo real para gerenciamento de instâncias, execução automatizada e relatórios analíticos.
 > - **Tecnologias:** Python, React, Web APIs, Automation Scripts.
 
-#### 👾 [ROM Studio & Reverse Engineering Suite](https://github.com/iamjoaozin/iamjoaozin/tree/main/rom-studio)
-> **Conjunto de ferramentas para análise de memória, rastreamento VRAM e inspeção técnica de sistemas.**
-> - **Recursos:** Hex Editor, rastreador DMA, inspetor de tiles/sprites e pontes de comunicação em tempo real com emuladores.
-> - **Tecnologias:** Python, Lua, C/C++, Engenharia Reversa.
-
----
-
-### 💻 Tech Stack & Ferramentas
-
-| Categoria | Tecnologias |
-| :--- | :--- |
-| **Frontend & Web** | React.js, JavaScript (ES6+), HTML5, CSS3/Tailwind, Vite, Progressive Web Apps (PWA) |
-| **Backend & Automação** | Python, Node.js, REST APIs, FastAPI, Automation Scripts |
-| **Bancos de Dados & Cloud** | Firebase (Firestore / Auth), SQLite, GitHub Actions, Vercel |
-| **Ferramentas & Outros** | Git, C/C++, Lua, Engenharia Reversa, UI/UX Design |
+#### 👾 [ROM Studio & Engenharia de Jogos](https://github.com/iamjoaozin/iamjoaozin/tree/main/rom-studio)
+> **Ferramenta avançada para inspeção de memória, rastreamento VRAM e engenharia reversa.**
+> - **Recursos:** Hex Editor, rastreador DMA, inspetor de tiles/sprites e integração via Lua com emuladores.
+> - **Tecnologias:** Python, Lua, C/C++, Assembly 65816.
 
 ---
 
 ### 📊 Estatísticas do GitHub
 
 <div align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=iamjoaozin&show_icons=true&theme=radial&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub" />
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamjoaozin&layout=compact&theme=radial&hide=html,css" alt="Linguagens Mais Utilizadas" />
+  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=iamjoaozin&show_icons=true&theme=radial&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub" />
+  <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamjoaozin&layout=compact&theme=radial&hide=html,css" alt="Linguagens Mais Utilizadas" />
 </div>
 
 ---
 
-### 📬 Contato & Redes
+### 📬 Contato & Redes Sociais
 
-Você pode me encontrar ou entrar em contato através de:
+Fique à vontade para entrar em contato para projetos, oportunidades ou parcerias:
 
-- 💼 **LinkedIn:** *(Adicione seu link do LinkedIn aqui)*
-- 📧 **E-mail:** *(Adicione seu e-mail corporativo/pessoal aqui)*
-- 🌐 **GitHub:** [github.com/iamjoaozin](https://github.com/iamjoaozin)
+* 💼 **LinkedIn:** [linkedin.com/in/joao-victor-621405224](https://www.linkedin.com/in/joao-victor-621405224/)
+* 📱 **WhatsApp:** [+55 (87) 99169-5672](https://wa.me/5587991695672)
+* 📧 **E-mail:** [j33061393@gmail.com](mailto:j33061393@gmail.com)
+* 🌐 **GitHub:** [github.com/iamjoaozin](https://github.com/iamjoaozin)
 
 ---
 <div align="center">
