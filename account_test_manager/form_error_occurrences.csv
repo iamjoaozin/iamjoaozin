@@ -1,0 +1,8 @@
+timestamp,total_error_count,scenario_error_count,scenario_name,attempt_number,username,email,password
+2026-07-13T16:16:20-03:00,1,1,Knut Moe,1,Knut Moe,knutmoe4807@gmail.com,Rocha145
+2026-07-13T16:16:33-03:00,2,2,Knut Moe,2,LeifKristensen,leifkristensen3725@gmail.com,Rocha1459415
+2026-07-13T16:16:46-03:00,3,3,Knut Moe,3,ArneFredriksen,arnefredriksen1950@gmail.com,Rocha1457325
+2026-07-13T16:16:58-03:00,4,4,Knut Moe,4,PerLunde,perlunde8109@gmail.com,Rocha1453362
+2026-07-13T16:25:12-03:00,5,1,Leif Kristensen,1,Leif Kristensen,leifkristensen9937@gmail.com,Rocha145
+2026-07-13T16:39:10-03:00,6,1,Jan Aas,1,JanAas307731,janaas928205@gmail.com,Rocha145
+2026-07-13T16:44:07-03:00,7,1,Geir Myhre,1,GeirMyhre541541,geirmyhre264724@gmail.com,Rocha145

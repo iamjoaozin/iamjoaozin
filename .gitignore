@@ -1,0 +1,41 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python environments & cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Build outputs & executables
+dist/
+build/
+release/
+exports/
+*.spec
+*.exe
+*.dll
+
+# ROMs and binary assets
+*.smw
+*.sfc
+*.smc
+*.rom
+
+# Backups & local logs
+*.backup*.json
+*.log
+*.tmp
+
+# Environment variables
+.env
+.env.local
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

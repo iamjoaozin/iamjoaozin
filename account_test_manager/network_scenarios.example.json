@@ -1,0 +1,22 @@
+[
+  {
+    "scenario_name": "Nome 01",
+    "proxy_scheme": "http",
+    "proxy_host": "proxy.corp.example.com",
+    "proxy_port": 8080
+  },
+  {
+    "scenario_name": "Nome 02",
+    "proxy_scheme": "http",
+    "proxy_host": "10.0.0.55",
+    "proxy_port": 3128,
+    "proxy_user": "svc_user",
+    "proxy_pass": "secure_password"
+  },
+  {
+    "scenario_name": "Nome 03",
+    "proxy_scheme": "socks5",
+    "proxy_host": "127.0.0.1",
+    "proxy_port": 9050
+  }
+]

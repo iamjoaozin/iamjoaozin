@@ -1,0 +1,2 @@
+timestamp,total_success_count,scenario_success_count,scenario_name,attempt_number,username,email,password,proxy_scheme,proxy_host,proxy_port
+2026-07-13T17:21:46-03:00,1,1,Finn Evensen,1,FinnEvensen693159,finnevensen280327@gmail.com,Rocha145,http,45.39.25.195,5630

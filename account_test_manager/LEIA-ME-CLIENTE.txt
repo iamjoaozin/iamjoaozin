@@ -1,0 +1,38 @@
+NORDLYS - ACCOUNT MANAGER
+=========================
+
+REQUISITOS DO COMPUTADOR
+
+1. Windows 10 ou Windows 11.
+2. Mozilla Firefox instalado.
+3. Extensao Firefox Multi-Account Containers instalada no Firefox.
+4. Permissao de proxy da extensao habilitada uma vez.
+5. Escala de tela do Windows em 100% e o mesmo tema/idioma usado nos templates.
+
+COMO ABRIR
+
+1. Extraia toda a pasta NORDLYS_CLIENTE.
+2. Execute NORDLYS_CLIENTE.exe.
+3. O painel preto e roxo abrira no navegador padrao.
+4. O Firefox sera detectado automaticamente.
+5. Deixe "Perfil Firefox" vazio para usar o perfil padrao do cliente.
+
+O QUE NAO PRECISA INSTALAR
+
+- Python
+- Node.js
+- React
+
+ARQUIVOS GERADOS AUTOMATICAMENTE
+
+- successful_registrations.csv: cadastros confirmados.
+- form_error_occurrences.csv: tentativas que apresentaram erro.
+- mac_proxy_ui_memory.json: associacao entre proxies e nomes.
+- web_panel_state.json: configuracoes salvas no painel.
+
+IMPORTANTE
+
+Mantenha NORDLYS_CLIENTE.exe e a pasta mac_ui_templates juntos. Se o OpenCV nao
+reconhecer algum botao no computador do cliente, confira escala 100%, zoom,
+idioma e tema do Firefox. Os templates podem ser substituidos nessa pasta sem
+recompilar o programa.

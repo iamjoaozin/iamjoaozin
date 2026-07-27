@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "assignments": {
+    "5e4c6287b49c49d30d46a96ee6dc1f7eeca4f9f049b9f47947b72c81de5087e9": {
+      "scenario_name": "Carlos Al",
+      "proxy_scheme": "http",
+      "proxy_host": "8.8.8.8",
+      "proxy_port": 3128,
+      "proxy_user": null,
+      "last_seen": "2026-07-20T22:39:26",
+      "created": true,
+      "renamed_at": "2026-07-20T22:45:21"
+    },
+    "ee7f927345ba03c4dbd820ed653124f6e549683aa990ab74037f053b65a468a4": {
+      "scenario_name": "Fernanda Si",
+      "proxy_scheme": "http",
+      "proxy_host": "9.9.9.9",
+      "proxy_port": 1080,
+      "proxy_user": null,
+      "last_seen": "2026-07-20T22:45:21",
+      "created": true
+    },
+    "f3d5562f689aad45de73f99fd6ec3ba908e1b3142a96738cc7023b6fb05d5390": {
+      "scenario_name": "Roberto Co",
+      "proxy_scheme": "http",
+      "proxy_host": "208.67.222.222",
+      "proxy_port": 8000,
+      "proxy_user": null,
+      "last_seen": "2026-07-20T22:55:34",
+      "created": true
+    }
+  },
+  "last_created": {
+    "scenario_name": "Roberto Co",
+    "proxy_host": "208.67.222.222",
+    "proxy_port": 8000,
+    "proxy_scheme": "http",
+    "registered_at": "2026-07-20T22:55:34"
+  },
+  "name_set_version": 19,
+  "name_phase": "norwegian_men_v1",
+  "names_normalized_at": "2026-07-20T22:45:21"
+}
