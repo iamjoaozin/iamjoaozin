@@ -31,9 +31,9 @@ Atuo no desenvolvimento de software cobrindo desde aplicações web reativas (PW
 
 | Projeto | Descrição | Link do Site (Live Demo) | Repositório no GitHub |
 | :--- | :--- | :--- | :--- |
+| **AgendaLink PWA** | Sistema completo de agendamento online com PWA e notificações push. | [🔗 Acessar AgendaLink (Lumina)](https://www.luminaatendimento.online) | [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa) |
 | **Infinity Web** | Plataforma Web de alto desempenho, animações fluidas e UX reativo. | [🔗 Acessar Infinity Web](https://infinity-web-kohl.vercel.app) | [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web) |
 | **Experiência 3D** | Aplicação interativa de navegação e manipulação de câmera 3D em WebGL. | [🔗 Acessar Mundo 3D](https://experiencia-imersiva.vercel.app) | [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d) |
-| **AgendaLink PWA** | Sistema completo de agendamento online com PWA e notificações push. | [🔗 Acessar AgendaLink](https://site-agendamento-doxyheheh-1134s-projects.vercel.app) | [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa) |
 | **Account Test Manager** | Suíte de automação em Python, gerenciamento de proxies e painel web. | — | [github.com/iamjoaozin/account-test-manager](https://github.com/iamjoaozin/account-test-manager) |
 | **ROM Studio** | Ferramentas de análise de memória, VRAM e engenharia reversa para SNES. | — | [github.com/iamjoaozin/rom-studio](https://github.com/iamjoaozin/rom-studio) |
 
