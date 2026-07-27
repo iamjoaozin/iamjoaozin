@@ -27,6 +27,32 @@ Atuo no desenvolvimento de software cobrindo desde aplicações web reativas (PW
 
 ---
 
+### 🎥 Projetos & Vídeos em Destaque
+
+#### 🌟 [infinity-web](https://github.com/iamjoaozin/infinity-web)
+Plataforma Web de alto desempenho e design moderno com navegação responsiva e animações fluidas.
+- **Destaque:** Assista à demonstração em vídeo diretamente no repositório!
+- **Acesse e Assista:** [github.com/iamjoaozin/infinity-web](https://github.com/iamjoaozin/infinity-web)
+
+#### 🕶️ [experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d)
+Projeto de navegação e exploração de ambientes 3D no navegador com Three.js / WebGL.
+- **Destaque:** Assista à demonstração em vídeo diretamente no repositório!
+- **Acesse e Assista:** [github.com/iamjoaozin/experiencia-imersiva-3d](https://github.com/iamjoaozin/experiencia-imersiva-3d)
+
+#### 📱 [agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
+Plataforma de agendamento online para barbearias e estabelecimentos com PWA e Notificações Push.
+- **Acesse o Repositório:** [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
+
+#### ⚙️ [account-test-manager](https://github.com/iamjoaozin/account-test-manager)
+Suíte de automação em Python, gerenciamento de proxies e painel web em tempo real.
+- **Acesse o Repositório:** [github.com/iamjoaozin/account-test-manager](https://github.com/iamjoaozin/account-test-manager)
+
+#### 👾 [rom-studio](https://github.com/iamjoaozin/rom-studio)
+Ferramentas de análise de memória, VRAM e engenharia reversa para jogos de SNES.
+- **Acesse o Repositório:** [github.com/iamjoaozin/rom-studio](https://github.com/iamjoaozin/rom-studio)
+
+---
+
 ### Linguagens & Tecnologias
 
 <p>
@@ -39,41 +65,6 @@ Atuo no desenvolvimento de software cobrindo desde aplicações web reativas (PW
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sqlite&logoColor=white" />
 </p>
-
-| Categoria | Tecnologias |
-| :--- | :--- |
-| **Frontend & Web** | React.js, Vite, PWA (Service Workers, Push API), Modern CSS |
-| **Backend & Cloud** | Python (FastAPI), Node.js, Firebase (Firestore, Auth), REST APIs |
-| **Baixo Nível & Modding** | Assembly 65816 (PIXI, Opcodes 65c816), C/C++, Lua Scripting |
-| **Ferramentas** | Git, Lunar Magic, PIXI, AddmusicK, Ghidra, Mesen Emulator API |
-
----
-
-### Repositórios em Destaque
-
-#### 📱 [agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
-Plataforma de agendamento online e gestão para barbearias e estabelecimentos de serviços.
-- **Funcionalidades:** Suporte a PWA, notificações push nativas, cadastro de profissionais com agendas individuais, galeria de serviços com otimização de imagens e painel administrativo reativo.
-- **Stack:** React.js, Firebase (Firestore, Auth), Service Workers.
-- **Acesse o Repositório:** [github.com/iamjoaozin/agendalink-pwa](https://github.com/iamjoaozin/agendalink-pwa)
-
-#### 📈 [site-arbitragem](https://github.com/iamjoaozin/site-arbitragem)
-Plataforma web de análise de arbitragem e calculadora de viabilidade.
-- **Funcionalidades:** Dashboard para cálculo de oportunidades de arbitragem, autenticação de usuários, integração com banco de dados e relatórios.
-- **Stack:** Python, Flask, SQL, HTML5/CSS3.
-- **Acesse o Repositório:** [github.com/iamjoaozin/site-arbitragem](https://github.com/iamjoaozin/site-arbitragem)
-
-#### ⚙️ [account-test-manager](https://github.com/iamjoaozin/account-test-manager)
-Painel web e suíte de automação para gerenciamento de contas, proxies e tarefas em lote.
-- **Funcionalidades:** Dashboard em tempo real para monitoramento de instâncias, execução paralela de tarefas, persistência de estado e exportação de relatórios.
-- **Stack:** Python, React.js, Web APIs.
-- **Acesse o Repositório:** [github.com/iamjoaozin/account-test-manager](https://github.com/iamjoaozin/account-test-manager)
-
-#### 👾 [rom-studio](https://github.com/iamjoaozin/rom-studio)
-Conjunto de ferramentas para análise de memória, rastreamento de DMA, inspeção de VRAM e modding de jogos de SNES.
-- **Funcionalidades:** Hex editor integrado, visualizador de tiles/sprites, rastreador de transferências DMA e ponte de comunicação em tempo real via Lua com o emulador Mesen.
-- **Stack:** Python, Lua, C/C++, Assembly 65816.
-- **Acesse o Repositório:** [github.com/iamjoaozin/rom-studio](https://github.com/iamjoaozin/rom-studio)
 
 ---
 
